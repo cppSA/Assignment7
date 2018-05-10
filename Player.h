@@ -25,8 +25,12 @@ class Player{
                 throw ce;
             }
         }
+        //Copy constructor 
+        Player(Player p){
+                this->myChar =p.myChar;
+        }
         //Get the player's char (myChar)
-        char getmyChar(){
+        char getChar(){
             return this->myChar;
         }
 

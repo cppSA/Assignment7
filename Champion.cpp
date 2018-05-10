@@ -5,7 +5,7 @@
 **/
 #include "Champion.h"
 
-//we need change, set our algorithms
+//we need change, set our algorithm
 const Coordinate Champion::play(const Board& board){
 	for (uint x=0; x<board.size(); ++x) {
 		for (uint y=0; y<board.size(); ++y) {

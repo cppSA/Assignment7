@@ -19,6 +19,11 @@ int Coordinate::getRow(){
 int Coordinate::getCol(){
     return this->col;
 }
+//Sets both coordinate values
+void Coordinate::setCoors(Coordinate c){
+    this->row = c.row;
+    this->col = c.col;
+}
 //Sets the row of the coordinate object.
 void Coordinate::setRow(int r){
     this->row = r;

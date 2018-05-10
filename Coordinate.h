@@ -18,6 +18,8 @@ class Coordinate{
         int getRow();
         //Returns the column of the coordinate object.
         int getCol();
+        //Sets both coordinate values
+        void setCoors(Coordinate c);
         //Sets the row of the coordinate object.
         void setRow(int r);
         //Sets the column of the coordinate object.

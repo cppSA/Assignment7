@@ -4,19 +4,15 @@
 *Version 1.0
 **/
 #pragma once
+//libraries
 #include <string>
-#include <iostream>
 #include "Board.h"
-using namespace std;
 
 class Player{
-
     public:
-
         char myChar;
-
         //Constructor
-        Player(char s){
+        /*Player(char s){
             if (s=='X' || s=='O' )
                 this->myChar = s;
             else{
@@ -26,14 +22,17 @@ class Player{
             }
         }
         //Copy constructor 
-        Player(Player p){
+        Player(const Player& p){
                 this->myChar =p.myChar;
-        }
+        }*/
         //Get the player's char (myChar)
         char getChar(){
-            return this->myChar;
+            return myChar;
         }
-
+        //Set the player's char (myChar)
+        void setChar(char ch){
+            myChar = ch;
+        }
         //Pure virtual function - must me implemented in classes that inherit from Player.
 	    virtual const string name() const = 0;
 

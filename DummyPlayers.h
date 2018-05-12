@@ -1,8 +1,13 @@
+/**
+*header file of classes XYPlayer,YXPlayer,IllegalPlayer and ExceptionPlayer
+*Author Erel Segal-Halevi
+*From https://github.com/erelsgl/ariel-cpp-5778/tree/master/week06-inheritance/homework
+*Version 1.0
+**/
+
+
 #pragma once
-
 #include "Player.h"
-
-
 
 /* 
 	This player scans the board looping on x then on y, 

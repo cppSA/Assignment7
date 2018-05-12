@@ -3,10 +3,11 @@
 *Authors Alexey Titov and Shir Bentabou
 *Version 1.0
 **/
+#pragma once
 //libraries
 #include <iostream>
-#include <string>
 #include <list>
+#include <string>
 #include "Cell.h"
 #include "Coordinate.h"
 #include "OurException.h"
@@ -21,8 +22,11 @@ public:
     //Constructor that receives an int that defines the board size wanted
     Board(int b);
 
+    //Empty constructor.
+    Board();
+
     //A copy constructor that receives a Board object and makes a deep copy to another Board object.
-    Board(Board& copy);
+    Board(const Board& copy);
 
     //Distructor for Board object - deletes everything we allocated memory for.
     ~Board();
@@ -31,19 +35,19 @@ public:
     void delBoard();
 
     //Returns board size - written for assignment 7
-    int size();
+    int size() const;
 
     //Operator [] overloading for Board class - for a specific cell inside the board.
     Cell& operator[](list<int> lst);
 
     //Operator [] overloading for Board class (using Coordinate class!) - for a specific cell inside the board.
-    Cell& Board::operator[](Coordinate c);
+    Cell& operator[](const Coordinate& c) const;
 
     //Operator '=' overloading for Board class. Inserts value to whole board if '.'. Else throws exception.
     Board& operator=(char c);
 
     //Operator '=' overloading for Board class. Copies another Board object.
-    Board& operator=(Board& copy);
+    Board& operator=(const Board& copy);
 
     //----------------------------------
     // friend global IO operators
@@ -57,6 +61,3 @@ public:
 //----------------------------------------
 //Operator '<<' overlaoding for board class.
 ostream& operator<< (ostream& os, const Board& b);
-
-
-

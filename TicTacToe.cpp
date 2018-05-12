@@ -1,91 +1,117 @@
+/**
+*cpp file of class TicTacToe
+*Authors Alexey Titov and Shir Bentabou
+*Version 2.0
+**/
+//libraries
+#include "TicTacToe.h"
 #include <string>
-#include "Board.h"
 
-using namespace std;
-
-class TicTacToe{
-    private:
-        int size;
-        Board gameBoard;
-        Player champ;
-    public:
-        //Constructor
-        TicTacToe(int s){
-            this->size = s;
-            this->gameBoard(s);
-        }
+    //Constructor
+    TicTacToe::TicTacToe(int s):gameBoard(s){
+        this->size = s;
+    }
         
-        //This functions checks if the game is over - if a player won or if there was a tie (board is full)
-        int gameover(char ch){
-            int answer=1; //counts the index we are in
-            int victory=0;
-            int i=0;
-            int j=0;
-            char input = ch;
+    //This functions checks if the game is over - if a player won or if there was a tie (board is full)
+    int TicTacToe::gameover(char ch){
+        int i,j;
+        int victory = 1;
 
-            //search up-down
-            for (i=row+1; this->gameBoard[{i,col}].getValue()==input && i<cols; i++,answer++); //passes down and counts
-            for (i=row-1; this->gameBoard[{i,col}].getValue()==input && i>=0; i--,answer++); //passes up and counts
-            if (answer>=3)
-                victory=1;
-            else{
-                printf("answer is %d \n", answer);
-                answer=1;
-            }
-            //search left-right
-            for (i=col+1; this->gameBoard[{row,i}].getValue()==input && i<cols; i=i+1,answer++); 
-            for (i=col-1; this->gameBoard[{row,i}].getValue()==input && i>0; i=i-1,answer++);//left
-            if (answer>=3)
-                victory=1;
-            else
-                answer=1;
-           
-            //search upleft-downright
-            for (i=row+1, j=col+1;  this->gameBoard[{i,j}].getValue()==input && i<rows && j<cols; i++, j=j+1, answer++);
-            for (i=row-1, j=col-1;  this->gameBoard[{i,j}].getValue()==input && i>=0 && j>=0; i--, j=j-1, answer++);
-            if (answer>=3)
-                victory=1;
-            else
-                answer=1;
-            
-            //search downleft-upright
-            for (i=row-1, j=col+1;  this->gameBoard[{i,j}].getValue()==input && i>=0 && j<cols; i--, j=j+1, answer++);
-            for (i=row+1, j=col-1;  this->gameBoard[{i,j}].getValue()==input && i<rows && j>=0; i++, j=j-1, answer++);
-            if (answer>=3)
-                victory=1;
-            else
-                answer=1;
-            return victory;
-        }
-
-        //This function executes a whole game of tic-tac-toe, and uses player and winner functions of this class.
-        void play(Player xPlayer, Player oPlayer){
-            //if it's a tie, oPlayer wins
-            int board_size = this->size*this->size;
-            Coordinate c(0,0);
-            for (int i=1; i<=board_size; i++){
-                if (i%2==1){
-                    c.setCoors(xPlayer.play(this->gameBoard));
-                }else{
-                    c.setCoors(oPlayer.play(this->gameBoard));
-                }
-                if (gameover()){
-                    if (i%2==1)
-                        this->champ=xPlayer;
-                    else
-                        this->champ=xPlayer;
+        for(i = 0; i< this->size; i++){
+            victory = 1;
+            for(j = 0; j<this->size; j++){
+                if(this->gameBoard[{i,j}] != ch){
+                    victory = 0;
                     break;
                 }
             }
+            if(victory)
+                return 1;
+            victory = 1;
+            for(j = 0; j<this->size; j++){
+                if(this->gameBoard[{j,i}] != ch){
+                    victory = 0;
+                    break;
+                }
+            }
+            if(victory) 
+                return 1;
+        }
+        victory = 1;
+        for(i = 0; i< this->size; i++){
+            if(this->gameBoard[{i,i}] != ch){
+                victory = 0;
+                break;
+            }
+        }
+        if(victory)
+            return 1;
+        victory = 1;
+        for(i = 0; i< this->size; i++){
+            if(this->gameBoard[{this->size-i-1,i}] != ch){
+                victory = 0;
+                break;
+            }
         }
 
-        //This function returns the board when the game has ended
-        Board& board(){
-            return this->gameBoard;
-        }
+        return victory;
+    }
 
-        //This function returns the player that won the game
-        Player& winner(){
-            return this->champ;
+    //This function executes a whole game of tic-tac-toe, and uses player and winner functions of this class.
+    void TicTacToe::play(Player& xPlayer, Player& oPlayer){
+        int board_size = this->size*this->size;
+        xPlayer.setChar('X');
+        oPlayer.setChar('O');
+        Coordinate c(0,0);
+        this->gameBoard ='.';
+        for (int i=1; i<=board_size; i+=2){
+            try{
+                c.setCoors(xPlayer.play(this->gameBoard));
+                if(this->gameBoard[c]=='.')
+                    this->gameBoard[c] = xPlayer.getChar();
+                else{
+                    this->champ = &oPlayer; 
+                    return;
+                }
+            }catch(const string& msg){
+                if(this->gameBoard[{0,0}]=='.')
+                    this->gameBoard[{0,0}] = xPlayer.getChar();
+                this->champ = &oPlayer; 
+                return;
+            }
+            if (gameover('X')){
+                this->champ=&xPlayer;
+                return;
+            }
+            try{
+                c.setCoors(oPlayer.play(this->gameBoard));
+                if(this->gameBoard[c]=='.')
+                    this->gameBoard[c] = oPlayer.getChar();
+                else{
+                    this->champ = &xPlayer; 
+                    return;
+                }
+            }catch(const string& msg){
+                if(this->gameBoard[{0,0}]=='.')
+                    this->gameBoard[{0,0}] = oPlayer.getChar();
+                this->champ = &xPlayer; 
+                return;
+            }
+            if (gameover('O')){
+                this->champ=&oPlayer;
+                return;
+            }
         }
-}
+        //if it's a tie, oPlayer wins
+        this->champ=&oPlayer;
+    }
+
+    //This function returns the board when the game has ended
+    Board TicTacToe::board() const{
+        return this->gameBoard;
+    }
+
+    //This function returns the player that won the game
+    Player& TicTacToe::winner() const{
+        return *this->champ;
+    }

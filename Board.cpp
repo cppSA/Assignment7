@@ -20,8 +20,11 @@ Board::Board(int b){
     }
 }
 
+//Empty constructor.
+Board::Board(){}
+
 //A copy constructor that receives a Board object and makes a deep copy to another Board object.
-Board::Board(Board& copy){
+Board::Board(const Board& copy){
     this->bound=copy.bound;
     this->board=new Cell*[this->bound];
     for (int i=0; i<this->bound; i++){
@@ -48,8 +51,8 @@ Board::~Board(){
 }
 
 //Returns board size - written for assignment 7
-int Board::size(){
-    return this->bound;
+int Board::size() const{
+    return bound;
 }
 
 
@@ -66,7 +69,7 @@ Cell& Board::operator[](list<int> lst){
 }
 
 //Operator [] overloading for Board class (using Coordinate class!) - for a specific cell inside the board.
-Cell& Board::operator[](Coordinate c){
+Cell& Board::operator[](const Coordinate& c) const{
     int row = c.getRow();
     int col = c.getCol();
     if (row<this->bound && col<this->bound){
@@ -96,7 +99,7 @@ Board& Board::operator=(char c){
 }
 
 //Operator '=' overloading for Board class. Copies another Board object.
-Board& Board::operator=(Board& copy){
+Board& Board::operator=(const Board& copy){
     delBoard();
     this->bound=copy.bound;
     this->board=new Cell*[this->bound];
@@ -125,4 +128,3 @@ ostream& operator<< (ostream& os, const Board& b){
     }
     return os;
 }
-

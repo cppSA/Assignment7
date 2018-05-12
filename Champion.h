@@ -3,8 +3,8 @@
 *Authors Alexey Titov and Shir Bentabou
 *Version 1.0
 **/
-
 #pragma once
+//library
 #include "Player.h"
 
 class Champion: public Player {

@@ -1,11 +1,10 @@
 /**
-*hidden file of classes IllegalCharException and IllegalCoordinateException
+*header file of classes IllegalCharException and IllegalCoordinateException
 *Authors Alexey Titov and Shir Bentabou
 *Version 1.0
 **/
-//library
-#include <exception>
-using namespace std;
+#pragma once
+//libraries
 
 //Class to handle illegal char insertions. Using function 'setCh' by the Board Class '=' operator function.
 class IllegalCharException:public exception{

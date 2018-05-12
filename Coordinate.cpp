@@ -3,7 +3,7 @@
 *Authors Alexey Titov and Shir Bentabou
 *Version 1.0
 **/
-
+//library
 #include "Board.h"
 
 //Constructor that recieves two ints for the coordinates.
@@ -12,11 +12,11 @@ Coordinate::Coordinate(int r, int c){
     this->col = c;
 }
 //Returns the row of the coordinate object.
-int Coordinate::getRow(){
+int Coordinate::getRow() const{
     return this->row;
 }
 //Returns the column of the coordinate object.
-int Coordinate::getCol(){
+int Coordinate::getCol() const{
     return this->col;
 }
 //Sets both coordinate values

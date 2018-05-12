@@ -1,8 +1,9 @@
 /**
-*hidden file of class Cell
+*hedear file of class Cell
 *Authors Alexey Titov and Shir Bentabou
 *Version 1.0
 **/
+#pragma once
 //library
 #include <iostream>
 using namespace std;
@@ -39,4 +40,3 @@ public:
 
 //Operator '<<' overloading for Cell class.
 ostream& operator<< (ostream& os, Cell& c);
-

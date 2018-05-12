@@ -1,5 +1,11 @@
+/**
+*cpp file of classes XYPlayer,YXPlayer,IllegalPlayer and ExceptionPlayer
+*Author Erel Segal-Halevi
+*From https://github.com/erelsgl/ariel-cpp-5778/tree/master/week06-inheritance/homework
+*Version 1.0
+**/
+//library
 #include "DummyPlayers.h"
-
 
 const Coordinate XYPlayer::play(const Board& board) {
 	for (uint x=0; x<board.size(); ++x) {

@@ -1,6 +1,12 @@
+/**
+*main file for assigment 7
+*Author Erel Segal-Halevi
+*From https://github.com/erelsgl/ariel-cpp-5778/tree/master/week06-inheritance/homework
+*Version 1.0
+**/
+//libraries
 #include "TicTacToe.h"
 #include "DummyPlayers.h"
-
 #include "Champion.h"
 
 void printResults(const TicTacToe& game) {

@@ -1,19 +1,23 @@
 /**
 *cpp file of class Champion
 *Authors Alexey Titov and Shir Bentabou
-*Version 1.0
+*Version 2.0
 **/
+//library
 #include "Champion.h"
 
 //we need change, set our algorithm
 const Coordinate Champion::play(const Board& board){
-	for (uint x=0; x<board.size(); ++x) {
-		for (uint y=0; y<board.size(); ++y) {
-			Coordinate c{x,y};
-			if (board[c]=='.') {
-				return c;
-			}
+	for (int x=0; x<board.size(); ++x)
+	{
+        Coordinate c{board.size()-1-x,x};
+        if(x==1 && board[{0,board.size()-1}] == '.'){
+			c.setRow(0);
+			c.setCol(board.size()-1);
 		}
+		if(board[c]=='.') {
+			return c;
+        }	
 	}
 	return {0,0};  // did not find an empty square - play on the top-left
 }

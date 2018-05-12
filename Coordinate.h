@@ -9,11 +9,11 @@
 
 class Coordinate{
     private:
-        int row; //row position
-        int col; //col position
+        uint row; //row position
+        uint col; //col position
     public:
         //Constructor that recieves two ints for the coordinates.
-        Coordinate(int r, int c);
+        Coordinate(uint r, uint c);
         //Returns the row of the coordinate object.
         int getRow() const;
         //Returns the column of the coordinate object.
@@ -21,7 +21,7 @@ class Coordinate{
         //Sets both coordinate values
         void setCoors(Coordinate c);
         //Sets the row of the coordinate object.
-        void setRow(int r);
+        void setRow(uint r);
         //Sets the column of the coordinate object.
-        void setCol(int c);
+        void setCol(uint c);
 };

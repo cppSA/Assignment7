@@ -38,7 +38,7 @@ public:
     int size() const;
 
     //Operator [] overloading for Board class - for a specific cell inside the board.
-    Cell& operator[](list<int> lst);
+    Cell& operator[](list<uint> lst);
 
     //Operator [] overloading for Board class (using Coordinate class!) - for a specific cell inside the board.
     Cell& operator[](const Coordinate& c) const;

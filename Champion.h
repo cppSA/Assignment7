@@ -10,10 +10,10 @@
 class Champion: public Player {
     public:
         //We are winner
-	    const string name() const override{
+	const string name() const override{
             return "Alexey Titov + Shir Bentabou"; 
         };
         
         //we need change, set our algorithms
-	    const Coordinate play(const Board& board) override;
+	const Coordinate play(const Board& board) override;
 };

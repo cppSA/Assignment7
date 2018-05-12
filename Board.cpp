@@ -57,7 +57,7 @@ int Board::size() const{
 
 
 //Operator [] overloading for Board class (using List!) - for a specific cell inside the board.
-Cell& Board::operator[](list<int> lst){
+Cell& Board::operator[](list<uint> lst){
     int r=lst.front(), c=lst.back();
     if (r<this->bound && c<this->bound){
         return this->board[r][c];

@@ -14,7 +14,7 @@
         
     //This functions checks if the game is over - if a player won or if there was a tie (board is full)
     int TicTacToe::gameover(char ch){
-        int i,j;
+        uint i,j;
         int victory = 1;
 
         for(i = 0; i< this->size; i++){

@@ -7,7 +7,7 @@
 #include "Board.h"
 
 //Constructor that recieves two ints for the coordinates.
-Coordinate::Coordinate(int r, int c){
+Coordinate::Coordinate(uint r, uint c){
     this->row = r;
     this->col = c;
 }
@@ -25,10 +25,10 @@ void Coordinate::setCoors(Coordinate c){
     this->col = c.col;
 }
 //Sets the row of the coordinate object.
-void Coordinate::setRow(int r){
+void Coordinate::setRow(uint r){
     this->row = r;
 }
 //Sets the column of the coordinate object.
-void Coordinate::setCol(int c){
+void Coordinate::setCol(uint c){
     this->col = c;
 }

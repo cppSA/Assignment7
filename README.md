@@ -14,10 +14,10 @@ In this repository you will find 17 files regarding the seventh exercise given i
     Coordinate.h - is the header file with everything needed for our Coordinate.cpp code to work.
   - Player.h - is the header file with everything needed for pure virtual class Player.
   - DummyPlayers.cpp - contains four classes, we wrote with the code needed for the functionality of our game.
-                     -  The XYPlayer class.
-                     -  The YXPlayer class.
-                     -  The IllegalPlayer class.
-                     -  The ExceptionPlayer class.
+    1. The XYPlayer class.
+    2. The YXPlayer class.
+    3. The IllegalPlayer class.
+    4. The ExceptionPlayer class.
     DummyPlayers.h - is the header file with everything needed for our DummyPlayers.cpp code to work.
   - Champion.cpp - is the class we wrote with the code needed for the functionality of our game.
     Champion.h - is the header file with everything needed for our Champion.cpp code to work.

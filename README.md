@@ -18,6 +18,7 @@ In this repository you will find 17 files regarding the seventh exercise given i
     2. The YXPlayer class.
     3. The IllegalPlayer class.
     4. The ExceptionPlayer class.
+    
   DummyPlayers.h - is the header file with everything needed for our DummyPlayers.cpp code to work.
   - Champion.cpp - is the class we wrote with the code needed for the functionality of our game.
     Champion.h - is the header file with everything needed for our Champion.cpp code to work.

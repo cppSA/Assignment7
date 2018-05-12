@@ -12,7 +12,7 @@ class Player{
     public:
         char myChar;
         //Constructor
-        /*Player(char s){
+        Player(char s){
             if (s=='X' || s=='O' )
                 this->myChar = s;
             else{
@@ -24,7 +24,9 @@ class Player{
         //Copy constructor 
         Player(const Player& p){
                 this->myChar =p.myChar;
-        }*/
+        }
+        //Empty constructor 
+        Player(){ }
         //Get the player's char (myChar)
         char getChar(){
             return myChar;

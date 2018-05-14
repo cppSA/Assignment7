@@ -64,7 +64,7 @@
         oPlayer.setChar('O');
         Coordinate c(0,0);
         this->gameBoard ='.';
-        for (int i=1; i<=board_size; i+=2){
+        for (int i=0; i<board_size; i+=2){
             try{
                 c.setCoors(xPlayer.play(this->gameBoard));
                 if(this->gameBoard[c]=='.')

@@ -74,8 +74,9 @@
                     return;
                 }
             }catch(const string& msg){
-                if(this->gameBoard[{0,0}]=='.')
-                    this->gameBoard[{0,0}] = xPlayer.getChar();
+                //after fix 86-91
+                //if(this->gameBoard[{0,0}]=='.')
+                //    this->gameBoard[{0,0}] = xPlayer.getChar();
                 this->champ = &oPlayer; 
                 return;
             }
@@ -92,8 +93,9 @@
                     return;
                 }
             }catch(const string& msg){
-                if(this->gameBoard[{0,0}]=='.')
-                    this->gameBoard[{0,0}] = oPlayer.getChar();
+                //after fix 86-91
+                //if(this->gameBoard[{0,0}]=='.')
+                //    this->gameBoard[{0,0}] = oPlayer.getChar();
                 this->champ = &xPlayer; 
                 return;
             }

@@ -7,6 +7,7 @@
 //libraries
 #include "TicTacToe.h"
 #include "DummyPlayers.h"
+
 #include "Champion.h"
 
 void printResults(const TicTacToe& game) {
@@ -88,7 +89,7 @@ int main() {
 	playAndPrintResults(game, player4, player2);  
 	/*
 		The final board is 
-		X...
+		....
 		....
 		....
 		....

@@ -16,9 +16,10 @@
     int TicTacToe::gameover(char ch){
         uint i,j;
         int victory = 1;
-
+        //rows
         for(i = 0; i< this->size; i++){
             victory = 1;
+            //left-right
             for(j = 0; j<this->size; j++){
                 if(this->gameBoard[{i,j}] != ch){
                     victory = 0;
@@ -28,6 +29,7 @@
             if(victory)
                 return 1;
             victory = 1;
+            //up-down
             for(j = 0; j<this->size; j++){
                 if(this->gameBoard[{j,i}] != ch){
                     victory = 0;
@@ -38,6 +40,7 @@
                 return 1;
         }
         victory = 1;
+        //diagonal upleft - downright 
         for(i = 0; i< this->size; i++){
             if(this->gameBoard[{i,i}] != ch){
                 victory = 0;
@@ -47,13 +50,13 @@
         if(victory)
             return 1;
         victory = 1;
+        //diagonal upright - downleft 
         for(i = 0; i< this->size; i++){
             if(this->gameBoard[{this->size-i-1,i}] != ch){
                 victory = 0;
                 break;
             }
         }
-
         return victory;
     }
 

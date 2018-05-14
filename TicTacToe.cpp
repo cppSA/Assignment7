@@ -15,6 +15,7 @@
     //This functions checks if the game is over - if a player won or if there was a tie (board is full)
     int TicTacToe::gameover(char ch){
         uint i,j;
+        //int i,j;
         int victory = 1;
         //rows
         for(i = 0; i< this->size; i++){
@@ -67,7 +68,8 @@
         oPlayer.setChar('O');
         Coordinate c(0,0);
         this->gameBoard ='.';
-        for (int i=0; i<board_size; i+=2){
+        for (int i=0; i<board_size;){
+            i++;
             try{
                 c.setCoors(xPlayer.play(this->gameBoard));
                 if(this->gameBoard[c]=='.')
@@ -87,24 +89,27 @@
                 this->champ=&xPlayer;
                 return;
             }
-            try{
-                c.setCoors(oPlayer.play(this->gameBoard));
-                if(this->gameBoard[c]=='.')
-                    this->gameBoard[c] = oPlayer.getChar();
-                else{
+            i++;
+            if (i<board_size){
+                try{
+                    c.setCoors(oPlayer.play(this->gameBoard));
+                    if(this->gameBoard[c]=='.')
+                        this->gameBoard[c] = oPlayer.getChar();
+                    else{
+                        this->champ = &xPlayer; 
+                        return;
+                    }
+                }catch(const string& msg){
+                    //after fix 86-91
+                    //if(this->gameBoard[{0,0}]=='.')
+                    //    this->gameBoard[{0,0}] = oPlayer.getChar();
                     this->champ = &xPlayer; 
                     return;
                 }
-            }catch(const string& msg){
-                //after fix 86-91
-                //if(this->gameBoard[{0,0}]=='.')
-                //    this->gameBoard[{0,0}] = oPlayer.getChar();
-                this->champ = &xPlayer; 
-                return;
-            }
-            if (gameover('O')){
-                this->champ=&oPlayer;
-                return;
+                if (gameover('O')){
+                    this->champ=&oPlayer;
+                    return;
+                }
             }
         }
         //if it's a tie, oPlayer wins
